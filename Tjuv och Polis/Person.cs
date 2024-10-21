@@ -80,29 +80,28 @@ namespace Tjuv_och_Polis
     class Theif : Persons
     {
         public override char Symbol => 'T'; //Symbolen för tjuv
-        public Theif(int x, int y) : base(x, y new )
+        public Theif(int x, int y) : base(x, y new List<string>()) { }
         
     }
 
-    class Police : Person
+    class Police : Persons
     {
-        public override char Symbol
-        {
-            get
-            {
-                return 'P';
-            }
-        }
+        public override char Symbol => 'P';
+
+        public Police(int x, int y) : base(x, y, new List<string>()) { }
+        
+                  
+        
     }
 
-    class Citizen : Person
+    class Citizen : Persons
     {
-        public override char Symbol
-        {
-            get
-            {
-                return 'M';
-            }
-        }
+        public override char Symbol => 'C';
+        
+        public Citizen(int x, int y) : base(x, y, new List<string>()) { }
+            
+                
+            
+        
     }
 }
