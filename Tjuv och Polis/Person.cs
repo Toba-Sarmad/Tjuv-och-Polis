@@ -18,6 +18,13 @@ namespace Tjuv_och_Polis
 
         protected static Random random = new Random();
 
+        public Persons(int x, int y, List<string> items)
+        {
+            x = x;
+            y = y;
+            Items = items;
+        }
+
         //constructor
         public Persons(int xLocation, int yLocation)
         {
@@ -26,7 +33,7 @@ namespace Tjuv_och_Polis
         }
 
         //Virtual method for movement
-        public virtual void Movement(int width, int height, List<Person> allPersons)
+        public virtual void Movement(int width, int height, List<Persons> allPersons)
         {
             int direction = random.Next(0, 6);
             int xdirection = 0;
@@ -70,16 +77,11 @@ namespace Tjuv_och_Polis
         
     }
 
-    class Theif : Person
+    class Theif : Persons
     {
+        public override char Symbol => 'T'; //Symbolen för tjuv
         public Theif(int x, int y) : base(x, y new )
-        public override char Symbol
-        { 
-            get 
-            { 
-                return 'T'; 
-            } 
-        }
+        
     }
 
     class Police : Person
