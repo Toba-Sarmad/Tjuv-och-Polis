@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace Tjuv_och_Polis
 {
-    internal class Person
+    internal class Persons
     {
         public int XLocation { get; set; }
 
         public int YLocation{ get; set; }
 
-       // List<string> Items { get; set; }
+        List<string> Items { get; set; }
 
         public virtual char Symbol { get; } 
 
         protected static Random random = new Random();
 
         //constructor
-        public Person(int xLocation, int yLocation)
+        public Persons(int xLocation, int yLocation)
         {
             XLocation = xLocation;
             YLocation = yLocation;
@@ -72,9 +72,10 @@ namespace Tjuv_och_Polis
 
     class Theif : Person
     {
-        public Theif(int x, int y) : base(x,y new )
+        public Theif(int x, int y) : base(x, y new )
         public override char Symbol
-        { get 
+        { 
+            get 
             { 
                 return 'T'; 
             } 
