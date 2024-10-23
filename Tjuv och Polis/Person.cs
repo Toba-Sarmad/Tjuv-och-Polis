@@ -69,7 +69,7 @@ namespace Tjuv_och_Polis
         }
 
         //Metod för symbol
-        public virtual char Character()
+        public virtual char GetCharacter()
         {
             return Symbol;
         }
