@@ -37,30 +37,35 @@ namespace Tjuv_och_Polis
                 int starty = rnd.Next(1, spelplanHeight - 1);
                 allPersons.Add(new Citizen(startx, starty));
             }
+            
+            //Göm cursor
+            Console.CursorVisible = false;
 
             while (true)
             {
+                Console.Clear();
+
                 char[,] spelplan = new char[spelplanHeight, spelplanWidth];
 
                 for (int row = 0; row < spelplanHeight; row++)
                 {
                     for (int col = 0; col < spelplanWidth; col++)
+                    
+                    if(row == 0  || row == spelplanHeight - 1 || col == 0 || col == spelplanWidth + 1)
                     {
-                        if(row == 0  || row == spelplanHeight - 1 || col == 0 || col == spelplanWidth + 1)
-                        {
-                            spelplan[row, col] = ' ';
-                        }
-                        else
-                        {
-                            spelplan[row, col] = ' ';
-                        }
+                       spelplan[row, col] = ' ';
                     }
+                    else
+                    {
+                       spelplan[row, col] = ' ';
+                    }
+                    
                 }
                 foreach(var person in allPersons)
                 {
                     if(person.XLocation >= 0 && person.XLocation < spelplanWidth && person.YLocation >= 0 && person.YLocation < spelplanHeight)
                     {
-                        spelplan[person.YLocation, person.XLocation] = person.Character();
+                        spelplan[person.YLocation, person.XLocation] = person.GetCharacter();
                     }
                 }
 

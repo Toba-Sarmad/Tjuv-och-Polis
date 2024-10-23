@@ -21,8 +21,8 @@ namespace Tjuv_och_Polis
 
         public Persons(int x, int y, List<string> iteams)
         {
-            x = x;
-            y = y;
+            XLocation = x;
+            YLocation = y;
             Iteams = iteams;
         }
 
@@ -64,8 +64,8 @@ namespace Tjuv_och_Polis
                     break;
             }
 
-            XLocation = XLocation + xdirection;
-            YLocation = YLocation + ydirection;
+            XLocation += xdirection;
+            YLocation += ydirection;
         }
 
         //Metod för symbol
@@ -90,7 +90,7 @@ namespace Tjuv_och_Polis
             
             foreach(Persons person in allpersrons)
             {
-                if(person is Citizen citizen && citizen.XLocation == XLocation && citizen.YLocation == YLocation)
+                if(person is Citizen citizen && citizen.XLocation == YLocation && citizen.YLocation == YLocation)
                 {
                     if(citizen.Iteams.Count > 0)
                     {
@@ -127,7 +127,7 @@ namespace Tjuv_och_Polis
                 }
                 else if(person is Citizen citizen && citizen.XLocation == XLocation && citizen.YLocation == YLocation)
                 {
-                    Console.WriteLine("Antal gripna tjuvar: ");
+                    Console.WriteLine($"Antal gripna tjuvar: ");
                 }
             }
         }
